@@ -34,13 +34,17 @@
             <form class="form-login" method="post">
 
                 <label for="login">
-                    CPF:
-                    <input type="text" name="login" required id="login" placeholder="Digite o CPF" pattern="/(\d{3})(\d{3})(\d{3})(\d{2})/"  oninvalid="this.setCustomValidity('Preencha o campo CPF')" oninput="this.setCustomValidity('')"/>
+                    CPF*:
+                    <input required type="text" name="login" id="login" placeholder="Digite o CPF"
+                        oninvalid="this.setCustomValidity('Preencha o campo CPF')"
+                        oninput="this.setCustomValidity('')" />
                 </label>
 
-                <label for="senha">
-                    Senha:
-                    <input type="password" name="password" required id="password" placeholder="Digite a senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="A senha deve conter ao menos uma letra minúscula, uma letra maiúscula, um número e pelo menos 8 caracteres, " />
+                <label for="password">
+                    Senha*:
+                    <input type="password" name="password" required id="password" placeholder="Digite a senha"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        title="A senha deve conter, ao menos uma letra minúscula, uma letra maiúscula, um número e pelo menos 8 caracteres" />
                 </label>
 
                 <button type="submit">continuar</button>
@@ -82,7 +86,7 @@
 //A forma mais simples de criar uma função, é uma função de seta.
 // arrow function
 //   const msg = nome_time => alert(nome_time);
-// msg('Galo');
+// msg('Corinthians');
 //  (nome_time) => { corpo da função}
 // ()=>{}
 
