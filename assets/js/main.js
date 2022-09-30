@@ -21,23 +21,35 @@ function escreve(titulo) {
 
 //existem 4 formas de criar uma função em JavaScript
 
-//função nominal
+//função nominal - sofre hoisting.
 function mudaTitulo(novoTitulo) {
   document.querySelector("h1").innerHTML = novoTitulo;
 }
 
-mudaTitulo("Você Consegue");
+//escopo, orientação a objetos.
+
+mudaTitulo("Vai Corinthians");
 // expressão de função - Function Expression
 //função anônima
-const mudaTitulo2 = function (novoTitulo) {
-  document.querySelector("h2").innerHTML = novoTitulo;
+const mudaTitulo2 = function (target, novoTitulo) {
+  document.querySelector(target).innerHTML = novoTitulo;
 };
 
-mudaTitulo2("Trocando o subtítulo");
+mudaTitulo2("h1", "Trocando o título");
 
+//  Arrow Function - É uma função criada no ES6 ou ES2015
+// não existe o this dentro de uma arrow function.
+// não existe um método construtor.
+// sintaxe mais simples e prática.
 const relogio = () => {
   const date = new Date();
-  mudaTitulo2(date.toLocaleTimeString());
+  mudaTitulo2("h2", date.toLocaleTimeString());
 };
 
 setInterval(relogio, 1000);
+
+//setInterval(() => {}, tempo);
+
+const frases = ["A vida é bela", "A vida é curta", "A vida é uma dádiva"];
+
+mudaFrase("h1", frases, 4);
