@@ -1,46 +1,44 @@
-//trabalhando com JavaScript em um arquivo externo.
-const nome = "Fiap";
-console.log(nome, " chamando variável criada com var");
-//nome = "Avanade";
+//var nome; //hoisting - içar.
 
-escreve("Exemplo de função nominal");
+//console.log(nome, " chamando a variável usando o var");
 
-//função nominal - udf
-function escreve(titulo) {
-  //alert(titulo);
+//const nome = "Avanade";
+
+////////////////////////////////////////////////////////////////
+/**
+ * Existem 7 tipos de erros em JavaScript
+ * ------------------------
+ * SyntaxError - Escreveu alguma coisa errado.
+ * ReferenceError - Chamou alguém que não existe.
+ * TypeError - Erro de tipo é uma violação do JavaScript
+ * EvalError - Evite o uso do comando eval, mas se ele for inválido
+ * RangeError - Erro de intervalo, loop infinito, ou chamadas inúmeras de recursividade
+ * URIError - Erro referente a chamadas externas. Uniform Resource Identifier. httpswww.
+ * InternalError - Erro interno do JavaScript, falta de memória, processador...
+ */
+
+//eval('console.log("Vai corinthians!");');
+
+escreve("Museu do Ipiranga");
+//função nominal.
+function escreve(x) {
+  console.log(x);
 }
 
-//7 tipos diferentes de erros em JavaScript - 3 são os mais comuns.
-// 1 - SyntaxError - escreveu algo errado
-// 2 - ReferenceError - chamou quem não existe ou não está acesível
-// 3 - TypeError - violou alguma regra do javascript
-// 4 - RangeError - estourou o limite de aninhamento ou faixa de valores.
-// 5 - EvalError - existe um comando perigoso no JavaScript chamado eval.
-// 6 - InternalError - memória, processamento, crash no chrome ou v8
-// 7 - URIError - erros que acontecem ao consumir dados externos, com url inválidas.
-
-//existem 4 formas de criar uma função em JavaScript
-
-//função nominal - sofre hoisting.
 function mudaTitulo(novoTitulo) {
-  document.querySelector("h1").innerHTML = novoTitulo;
+  document.querySelector("h1").innerHTML = "<i>" + novoTitulo + "</i>";
 }
 
-//escopo, orientação a objetos.
+mudaTitulo("Vai Corinthians!");
 
-mudaTitulo("Vai Corinthians");
-// expressão de função - Function Expression
-//função anônima
+//expressão de função - function expression
+//função anônima - que não tem nome.
 const mudaTitulo2 = function (target, novoTitulo) {
   document.querySelector(target).innerHTML = novoTitulo;
 };
 
-mudaTitulo2("h1", "Trocando o título");
+mudaTitulo2("h2", "Trocando subtítulo");
 
-//  Arrow Function - É uma função criada no ES6 ou ES2015
-// não existe o this dentro de uma arrow function.
-// não existe um método construtor.
-// sintaxe mais simples e prática.
 const relogio = () => {
   const date = new Date();
   mudaTitulo2("h2", date.toLocaleTimeString());
@@ -48,8 +46,29 @@ const relogio = () => {
 
 setInterval(relogio, 1000);
 
-//setInterval(() => {}, tempo);
+const exemplo = (x) => console.log(x);
 
-const frases = ["A vida é bela", "A vida é curta", "A vida é uma dádiva"];
+exemplo("teste");
 
+const frases = [
+  "Um banco para 20 milhões de pessoas",
+  "C6 Bank o seu banco",
+  "Cartão de Crédito sem anuidade",
+];
+
+// mudaFrase("h1", frases, 4);
+// "h1" - onde;
+// frases - array;
+// 4 - segundos;
+
+const mudaFrase = (target, frases, tempo) => {
+  let total = 0;
+  setInterval(() => {
+    document.querySelector(target).innerHTML =
+      frases[total >= frases.length - 1 ? (total = 0) : (total += 1)];
+
+    console.log(total);
+  }, tempo * 1000);
+};
+// condicao?verdade:falso
 mudaFrase("h1", frases, 4);
