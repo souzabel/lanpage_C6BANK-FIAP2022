@@ -1,3 +1,4 @@
+function tooltip(tooltip,newDiv);
 const tooltip = document.querySelector("#tooltip");
 const body = document.querySelector("body");
 const header = document.querySelector(".top-site");
@@ -52,5 +53,6 @@ tooltip.addEventListener("mouseover", (e) => {
       document.querySelector(".tooltip").remove();
     }
   });
-  
-  tooltip("#tooltip", "texto do tooltip");
+
+//  tooltip("#tooltip", "texto do tooltip");
+

@@ -17,7 +17,7 @@ myFunc1.showArguments(
   "NodeJS",
   "TypeScript"
 );
-
+ 
 //explicar spread operator, destructuring assignment
 let myFunc2 = {
   showArguments: () => {
