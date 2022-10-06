@@ -9,5 +9,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^13.0.0"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.2.2"
+  }
 }
